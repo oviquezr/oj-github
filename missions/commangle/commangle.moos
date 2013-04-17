@@ -1,0 +1,62 @@
+// MOOS file
+
+ServerHost = 18.38.0.150
+//ServerHost = 18.38.5.56
+
+ServerPort = 9005
+
+//Community = pCommunicationAngle
+
+//------------------------------------------
+// Antler configuration  block
+ProcessConfig = ANTLER
+{
+  MSBetweenLaunches = 200
+
+  Run = MOOSDB			@ NewConsole = false
+  Run = uXMS 			@ NewConsole = true
+
+  Run = pCommunicationAngle 	@ NewConsole = false ~pCommunicationAngle_oviquezr
+}
+
+
+ProcessConfig = uXMS
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  VAR = ACOUSTIC_PATH_REF
+  VAR = ACOUSTIC_PATH
+
+  VAR = CONNECTIVITY_LOCATION_REF
+  VAR = CONNECTIVITY_LOCATION
+
+
+  VAR = VEHICLE_NAME
+  VAR = COLLABORATOR_NAME
+
+  VAR = NAV_X
+  VAR = NAV_Y
+  VAR = NAV_DEPTH
+
+  VAR = NEPTUNE_NAV_X
+  VAR = NEPTUNE_NAV_Y
+  VAR = NEPTUNE_NAV_DEPTH
+
+  VAR = ZMAX  
+
+
+//  history_var = PRIME_RESULT
+}
+
+
+ProcessConfig = pCommunicationAngle_oviquezr
+{
+   AppTick   = 4
+   CommsTick = 4
+
+   surface_sound_speed  = 1480
+   sound_speed_gradient = 0.016
+   water_depth		= 6000
+   time_delay		= 10
+}

@@ -1,0 +1,12 @@
+//---------------------------------------------------------
+// iOS5000 Config Block  (Created from Plugin)
+
+ProcessConfig = iOS5000
+{
+  AppTick     = 10
+  CommsTick   = 10
+  Port	      = /dev/OS5000
+  Speed       = 19200
+  PreRotation = -15
+}
+

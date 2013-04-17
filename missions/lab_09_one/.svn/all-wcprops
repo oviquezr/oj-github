@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/moos-ivp-aro/!svn/ver/5530/branches-public/moos-ivp-2680/ivp/missions/lab_09_one_baseline
+END
+plug_origin_warp.moos
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/moos-ivp-aro/!svn/ver/5529/branches-public/moos-ivp-2680/ivp/missions/lab_09_one_baseline/plug_origin_warp.moos
+END
+launch.sh
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/moos-ivp-aro/!svn/ver/5529/branches-public/moos-ivp-2680/ivp/missions/lab_09_one_baseline/launch.sh
+END
+plug_pShare.moos
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/moos-ivp-aro/!svn/ver/5529/branches-public/moos-ivp-2680/ivp/missions/lab_09_one_baseline/plug_pShare.moos
+END
+plug_pHelmIvP.moos
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/moos-ivp-aro/!svn/ver/5529/branches-public/moos-ivp-2680/ivp/missions/lab_09_one_baseline/plug_pHelmIvP.moos
+END
+plug_pNodeReporter.moos
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/moos-ivp-aro/!svn/ver/5529/branches-public/moos-ivp-2680/ivp/missions/lab_09_one_baseline/plug_pNodeReporter.moos
+END
+plug_pMarinePID.moos
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/moos-ivp-aro/!svn/ver/5529/branches-public/moos-ivp-2680/ivp/missions/lab_09_one_baseline/plug_pMarinePID.moos
+END
+clean.sh
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/moos-ivp-aro/!svn/ver/5529/branches-public/moos-ivp-2680/ivp/missions/lab_09_one_baseline/clean.sh
+END
+plug_uProcessWatch.moos
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/moos-ivp-aro/!svn/ver/5529/branches-public/moos-ivp-2680/ivp/missions/lab_09_one_baseline/plug_uProcessWatch.moos
+END
+meta_vehicle.moos
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/moos-ivp-aro/!svn/ver/5529/branches-public/moos-ivp-2680/ivp/missions/lab_09_one_baseline/meta_vehicle.moos
+END
+plug_pLogger.moos
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/moos-ivp-aro/!svn/ver/5529/branches-public/moos-ivp-2680/ivp/missions/lab_09_one_baseline/plug_pLogger.moos
+END
+meta_vehicle.bhv
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/moos-ivp-aro/!svn/ver/5529/branches-public/moos-ivp-2680/ivp/missions/lab_09_one_baseline/meta_vehicle.bhv
+END
+meta_shoreside.moos
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/moos-ivp-aro/!svn/ver/5530/branches-public/moos-ivp-2680/ivp/missions/lab_09_one_baseline/meta_shoreside.moos
+END
+plug_uFldNodeBroker.moos
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/moos-ivp-aro/!svn/ver/5529/branches-public/moos-ivp-2680/ivp/missions/lab_09_one_baseline/plug_uFldNodeBroker.moos
+END
+plug_uSimMarine.moos
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/moos-ivp-aro/!svn/ver/5529/branches-public/moos-ivp-2680/ivp/missions/lab_09_one_baseline/plug_uSimMarine.moos
+END
+plug_pHostInfo.moos
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/moos-ivp-aro/!svn/ver/5529/branches-public/moos-ivp-2680/ivp/missions/lab_09_one_baseline/plug_pHostInfo.moos
+END

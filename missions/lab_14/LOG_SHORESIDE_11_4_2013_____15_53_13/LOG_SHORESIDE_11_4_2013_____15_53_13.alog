@@ -1,0 +1,76 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LOG FILE:       ./LOG_SHORESIDE_11_4_2013_____15_53_13/LOG_SHORESIDE_11_4_2013_____15_53_13.alog
+%% FILE OPENED ON  Thu Apr 11 15:53:13 2013
+%% LOGSTART               1365709993.35
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+0.287           DB_TIME              MOOSDB_shoreside 1365709993.64019 
+0.287           DB_UPTIME            MOOSDB_shoreside 1.09002      
+0.556           APPCAST_REQ          uMAC_6408       node=all,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+0.556           APPCAST_REQ_ALL      uMAC_6408       node=all,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+0.562           LOGGER_DIRECTORY     pLogger         ./LOG_SHORESIDE_11_4_2013_____15_53_13 
+1.210           APPCAST_REQ          uMAC_6408       node=all,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+1.210           APPCAST_REQ_ALL      uMAC_6408       node=all,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+1.215           DB_CLIENTS           MOOSDB_shoreside uFldHazardMetric,uFldHazardSensor,pLogger,uMAC_6408, 
+1.232           APPCAST              uFldHazardSensor proc=uFldHazardSensor!@#iter=1!@#node=shoreside!@#iter=1!@#messages=Hazard File: (hazards_03.txt) !@     Hazard: 4!@     Benign: 100!@!@============================================!@Sensor Configuration Options!@============================================!@Width  Exp  Classify!@-----  ---  --------!@5.0    8.0  0.980   !@10.0   6.0  0.930   !@25.0   4.0  0.800   !@50.0   2.0  0.600   !@!@============================================!@Sensor Settings / Stats for known vehicles: !@============================================!@Vehicle  Swath                   Try Swath  Swath   Pd    !@Name     Width  Pd  Pfa  Pclass  Resets     Resets  Resets!@-------  -----  --  ---  ------  ---------  ------  ------!@!@!@Vehicle  Sensor                Classify  Classify!@Name     Requests  Detections  Requests  Answers !@-------  --------  ----------  --------  --------!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+1.410           APPCAST_REQ          uMAC_6408       node=shoreside,app=all,duration=0.1,key=uMAC_6408startup,thresh=any 
+1.414           DB_TIME              MOOSDB_shoreside 1365709994.76725 
+1.414           DB_UPTIME            MOOSDB_shoreside 2.21708      
+1.619           APPCAST              uFldHazardMetric proc=uFldHazardMetric!@#iter=1!@#node=shoreside!@#iter=1!@#messages=Hazard File: (hazards_03.txt)!@     Hazard: 4!@     Benign: 100!@!@Reward Structure:!@    Penalty Missed Hazard: 150!@      Penalty False Alarm: 25!@    Penalty Max Time Over: 300!@    Penalty Max Time Rate: 0.5!@                 Max Time: 9000!@   Worst Raw Normal Score: 3100!@!@==========================================!@Received Reports: 0!@Elapsed Time:     0!@==========================================!@Report  Total    Time      Time     Raw    Norm !@Name    Reports  Received  Elapsed  Score  Score!@------  -------  --------  -------  -----  -----!@!@#!@#events_total=1!@#events=Reading hazards_03.txt: Objects read: 104!@#run_warning_total=0!@# 
+1.810           APPCAST_REQ          uMAC_6408       node=all,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+1.810           APPCAST_REQ_ALL      uMAC_6408       node=all,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+0.967           VIEW_MARKER          uFldHazardSensor x=125,y=-284,width=8,primary_color=light_blue,type=square,label=99,fill_transparency=0.5 
+1.232           UHZ_OPTIONS_SUMMARY  uFldHazardSensor width=50,exp=2,class=0.60:width=25,exp=4,class=0.80:width=10,exp=6,class=0.93:width=5,exp=8,class=0.98,max=1 
+1.410           APPCAST_REQ_SHORESIDE uMAC_6408       node=shoreside,app=all,duration=0.1,key=uMAC_6408startup,thresh=any 
+2.411           APPCAST_REQ          uMAC_6408       node=all,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+2.411           APPCAST_REQ_ALL      uMAC_6408       node=all,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+2.415           DB_TIME              MOOSDB_shoreside 1365709995.76813 
+2.415           DB_UPTIME            MOOSDB_shoreside 3.21796      
+3.012           APPCAST_REQ          uMAC_6408       node=all,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+3.012           APPCAST_REQ_ALL      uMAC_6408       node=all,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+3.224           DB_CLIENTS           MOOSDB_shoreside uFldNodeComms,uFldShoreBroker,pHostInfo,pShare,uFldHazardMetric,uFldHazardSensor,pLogger,uMAC_6408, 
+3.329           PSHARE_INPUT_SUMMARY pShare          224.1.1.11:90009:multicast_9,localhost:9300:udp 
+3.440           DB_TIME              MOOSDB_shoreside 1365709996.79275 
+3.440           DB_UPTIME            MOOSDB_shoreside 4.24258      
+3.487           APPCAST              uFldNodeComms   proc=uFldNodeComms!@#iter=1!@#node=shoreside!@#iter=1!@#messages=Node Report Summary!@======================================!@        Total Received: 0!@     ------------------ !@            Total Sent: 0!@!@Node Message Summary!@======================================!@    Total Msgs Received: 0!@     ------------------ !@            Total Sent: 0!@     ------------------ !@    Total Blocked Msgs: 0!@               Invalid: 0!@        Stale Receiver: 0!@            Too Recent: 0!@          Msg Too Long: 0!@         Range Too Far: 0!@!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+3.570           PHI_HOST_INFO        pHostInfo       community=shoreside,hostip=18.111.101.250,port_db=9000,timewarp=1 
+3.571           APPCAST              pHostInfo       proc=pHostInfo!@#iter=1!@#node=shoreside!@#iter=1!@#messages=!@  PHI_HOST_IP:         18.111.101.250[0m!@  PHI_HOST_IP_ALL:     18.111.101.250!@!@  PHI_HOST_IP_VERBOSE: OSX_AIRPORT=18.111.101.250!@!@  PHI_HOST_PORT:       9000!@  PHI_PSHARES_IROUTES: !@  PHI_HOST_INFO:       community=shoreside,hostip=18.111.101.250,!@                       port_db=9000,timewarp=1!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+3.580           APPCAST              uFldShoreBroker proc=uFldShoreBroker!@#iter=1!@#node=shoreside!@#iter=1!@#messages=!@ Total PHI_HOST_INFO    received: 1!@ Total NODE_BROKER_PING received: 0!@ Total NODE_BROKER_ACK    posted: 0!@ Total PSHARE_CMD         posted: 0!@!@===========================================================!@            Shoreside Node(s) Information:!@===========================================================!@!@     Community: shoreside!@        HostIP: 18.111.101.250!@   Port MOOSDB: 9000!@     Time Warp: 1!@       IRoutes: !@===========================================================!@             Vehicle Node Information:!@===========================================================!@!@Node  IP               Elap  pShare              !@Name  Address  Status  Time  Input Route(s)  Skew!@----  -------  ------  ----  --------------  ----!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+3.614           APPCAST_REQ          uMAC_6408       node=all,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+3.614           APPCAST_REQ_ALL      uMAC_6408       node=all,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+4.215           APPCAST_REQ          uMAC_6408       node=all,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+4.215           APPCAST_REQ_ALL      uMAC_6408       node=all,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+4.329           PSHARE_INPUT_SUMMARY pShare          224.1.1.11:90009:multicast_9,localhost:9300:udp 
+3.570           PHI_HOST_IP          pHostInfo       18.111.101.250 
+3.570           PHI_HOST_IP_ALL      pHostInfo       18.111.101.250 
+3.570           PHI_HOST_IP_VERBOSE  pHostInfo       OSX_AIRPORT=18.111.101.250 
+3.570           PHI_HOST_PORT_DB     pHostInfo       9000 
+4.329           PSHARE_OUTPUT_SUMMARY pShare           
+4.487           DB_TIME              MOOSDB_shoreside 1365709997.84004 
+4.487           DB_UPTIME            MOOSDB_shoreside 5.28988      
+4.815           APPCAST_REQ          uMAC_6408       node=all,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+4.815           APPCAST_REQ_ALL      uMAC_6408       node=all,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+4.983           APPCAST_REQ          uMAC_6408       node=shoreside,app=uFldHazardSensor,duration=0.0,key=uMAC_6408,thresh=any 
+4.983           APPCAST_REQ_SHORESIDE uMAC_6408       node=shoreside,app=uFldHazardSensor,duration=0.0,key=uMAC_6408,thresh=any 
+5.244           DB_CLIENTS           MOOSDB_shoreside uFldNodeComms,uFldShoreBroker,pHostInfo,pShare,uFldHazardMetric,uFldHazardSensor,pLogger,uMAC_6408, 
+5.329           PSHARE_OUTPUT_SUMMARY pShare           
+5.329           PSHARE_INPUT_SUMMARY pShare          224.1.1.11:90009:multicast_9,localhost:9300:udp 
+5.415           APPCAST_REQ          uMAC_6408       node=shoreside,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+5.415           APPCAST_REQ_SHORESIDE uMAC_6408       node=shoreside,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+5.488           DB_TIME              MOOSDB_shoreside 1365709998.84068 
+5.488           DB_UPTIME            MOOSDB_shoreside 6.29052      
+6.016           APPCAST_REQ          uMAC_6408       node=shoreside,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+6.016           APPCAST_REQ_SHORESIDE uMAC_6408       node=shoreside,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+6.243           UHZ_OPTIONS_SUMMARY  uFldHazardSensor width=50,exp=2,class=0.60:width=25,exp=4,class=0.80:width=10,exp=6,class=0.93:width=5,exp=8,class=0.98,max=1 
+6.329           PSHARE_OUTPUT_SUMMARY pShare           
+6.329           PSHARE_INPUT_SUMMARY pShare          224.1.1.11:90009:multicast_9,localhost:9300:udp 
+6.585           DB_TIME              MOOSDB_shoreside 1365709999.93751 
+6.585           DB_UPTIME            MOOSDB_shoreside 7.38735      
+6.617           APPCAST_REQ          uMAC_6408       node=shoreside,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+6.618           APPCAST_REQ_SHORESIDE uMAC_6408       node=shoreside,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+7.226           APPCAST_REQ          uMAC_6408       node=shoreside,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+7.226           APPCAST_REQ_SHORESIDE uMAC_6408       node=shoreside,app=all,duration=3.0,key=uMAC_6408:app,thresh=run_warning 
+7.246           DB_CLIENTS           MOOSDB_shoreside uFldNodeComms,uFldShoreBroker,pHostInfo,pShare,uFldHazardMetric,uFldHazardSensor,pLogger,uMAC_6408, 
+7.329           PSHARE_OUTPUT_SUMMARY pShare           
+7.329           PSHARE_INPUT_SUMMARY pShare          224.1.1.11:90009:multicast_9,localhost:9300:udp 
+7.585           DB_TIME              MOOSDB_shoreside 1365710000.93815 
+7.585           DB_UPTIME            MOOSDB_shoreside 8.38799      

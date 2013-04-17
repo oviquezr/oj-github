@@ -1,0 +1,12 @@
+//--------------------------------------------------
+// uFldHazardMgr configuration block from plugin
+
+ProcessConfig = uFldHazardMgrOVR
+{
+  AppTick   = 2
+  CommsTick = 2
+
+  swath_width = $(SWATH_WIDTH)
+  sensor_pd   = $(SENSOR_PD)
+  report_name = $(VNAME)
+}

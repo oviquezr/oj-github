@@ -1,0 +1,128 @@
+//---------------------------------------------------
+// Helm Behavior file 
+
+initialize   DEPLOY  = false
+initialize   RETURN  = false
+initialize   LOITER  = true
+initialize   FOLLOW_PATH    = false
+initialize   HOLD    = false
+
+
+set MODE = ACTIVE {
+  DEPLOY = true
+} INACTIVE
+
+set MODE = HOLDING {
+  MODE = ACTIVE
+  HOLD = true
+} 
+
+set MODE = RETURNING {
+  MODE = ACTIVE
+  RETURN = true
+} 
+
+set MODE = LOITERING {
+  MODE = ACTIVE
+  LOITER = true
+} 
+
+set MODE = FOLLOWING_PATH {
+  MODE = ACTIVE
+  FOLLOW_PATH = true
+}  
+
+
+
+//----------------------------------------------
+Behavior = BHV_Loiter
+{
+  name      = loiter
+  pwt       = 100
+  condition = MODE==LOITERING
+  perpetual = true
+
+  endflag   = RETURN=true
+  endflag   = RESET_HOLD=true
+  duration  = 600
+  duration_reset = RESET_LOITER=true
+
+   post_suffix = A
+         speed = 1.3
+     clockwise = false
+        radius = 8.0
+     nm_radius = 15.0
+       polygon = radial:: x=125,y=-50, radius=20, pts=8, snap=1, label=gilda_LOITER
+  visual_hints = nextpt_color=white, nextpt_lcolor=khaki
+  visual_hints = edge_color=orange, vertex_color=white
+  visual_hints = edge_size=1, vertex_size=2
+}
+
+
+//----------------------------------------------
+Behavior = BHV_Waypoint
+{
+  name      = waypt_return
+  pwt       = 100
+  updates   = RETURN_UPDATES
+  condition = MODE==RETURNING
+
+//  endflag   = DEPLOY=false
+  endflag   = HOLD=true
+  endflag   = RESET_LOITER=true
+  perpetual = true
+
+      speed = 1.3
+     radius = 3.0
+  nm_radius = 15.0
+     points = 40,-10
+     repeat = 10
+       lead = 8
+
+  visual_hints = nextpt_lcolor=invisible
+
+}
+
+//----------------------------------------------
+Behavior = BHV_Waypoint
+{
+  name      = waypt_path
+  pwt       = 100
+  updates   = UPDATES_VAR
+  condition = MODE==FOLLOWING_PATH
+
+  wptflag = WPT_HIT=$[X],$[Y]
+
+  endflag   = RETURN=true
+//  endflag   = FOLLOW_PATH=false
+  perpetual = true
+
+      speed = 1.3
+     radius = 3.0
+  nm_radius = 15.0
+     points = 40,-10
+     repeat = 0
+       lead = 8
+
+  visual_hints = nextpt_lcolor=invisible
+
+}
+
+
+//----------------------------------------------
+Behavior = BHV_Timer
+{
+  name      = waypt_hold
+  pwt       = 100
+  condition = MODE==HOLDING
+  endflag   = RETURN=false
+  endflag   = HOLD=false
+  endflag   = DEPLOY=false
+  perpetual = true
+
+  duration  = 60
+  duration_reset = RESET_HOLD=true
+}
+
+
+

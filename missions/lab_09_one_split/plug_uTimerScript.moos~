@@ -1,0 +1,15 @@
+//--------------------------------------------------
+// uFldNodeBroker configuration block from plugin
+
+ProcessConfig = uTimerScript
+{
+  AppTick          = 4
+  CommsTick 	   = 4
+
+  event = var = NODE_MESSAGE_LOCAL, val = "src_node=$(VNAME),dest_node=all,var_name=UPDATE_LOITER,string_val=ycenter_assign=-50", time = 360
+
+  event = var = NODE_MESSAGE_LOCAL, val = "src_node=$(VNAME),dest_node=all,var_name=UPDATE_LOITER,string_val=ycenter_assign=-100", time = 720
+
+  reset_max  = nolimit
+  reset_time = all-posted
+}

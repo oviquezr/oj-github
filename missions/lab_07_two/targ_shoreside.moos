@@ -1,0 +1,184 @@
+//*******************************************************
+// ShoreSide Configuration File
+//
+
+ServerHost = localhost
+ServerPort = 9000
+Community  = shoreside
+
+MOOSTimeWarp = 10
+LatOrigin  = 43.825300 
+LongOrigin = -70.330400 
+
+
+  
+//--------------------------------------------------------
+Processconfig = ANTLER
+{
+  MSBetweenLaunches = 100
+
+  Run = MOOSDB          @ NewConsole = false
+  Run = pMarineViewer   @ NewConsole = false
+//  Run = pLogger         @ NewConsole = false
+  Run = uProcessWatch   @ NewConsole = false
+
+  Run = pPointAssign @ NewConsole = false
+
+  Run = pShare          @ NewConsole = false
+  Run = pHostInfo       @ NewConsole = false
+  Run = uFldShoreBroker @ NewConsole = false
+
+  Run = uTimerScript    @ NewConsole = false
+  Run = uTimerScript    @ NewConsole = false ~uTimerScriptLast
+
+}
+
+//---------------------------------------------------------
+// pShare Config Block  (Created from Plugin)
+
+ProcessConfig = pShare
+{
+  AppTick    = 2
+  CommsTick  = 2
+
+  input = route =  localhost:9300
+}
+
+
+
+//--------------------------------------------------
+// uFldShoreBroker Configuration Block
+
+ProcessConfig = uFldShoreBroker
+{
+  AppTick       = 1
+  CommsTick     = 1
+
+  // Note: [QBRIDGE = FOO]  is shorthand for                    
+  //       [BRIDGE = src=FOO_$V,  alias=FOO] and                
+  //       [BRIDGE = src=FOO_ALL, alias=FOO]
+
+  QBRIDGE  = DEPLOY, RETURN
+  QBRIDGE  = MOOS_MANUAL_OVERIDE, APPCAST_REQ
+
+  QBRIDGE  = VISIT_POINT, FOLLOW_PATH, LOITER
+
+  BRIDGE   = src=HELM_MAP_CLEAR, alias=HELM_MAP_CLEAR
+}
+
+//--------------------------------------------------
+// pHostInfo configuration block
+
+ProcessConfig = pHostInfo
+{
+  AppTick 	= 2
+  CommsTick 	= 2
+}
+
+//--------------------------------------------------
+// pLogger Configuration Block
+
+ProcessConfig = pLogger
+{
+  AppTick       = 10
+  CommsTick     = 10
+  
+  File          = LOG_SHORESIDE
+  PATH          = ./
+  SyncLog       = true @ 0.2
+  AsyncLog      = true
+  FileTimeStamp = true
+
+  // Log it all!!!!!
+  WildCardLogging = true 
+  WildCardOmitPattern = *_STATUS
+}
+
+
+//--------------------------------------------------------
+ProcessConfig = pMarineViewer
+{
+  AppTick    = 4
+  CommsTick  = 4
+
+  TIFF_FILE            = forrest19.tif
+  set_pan_x            = -90
+  set_pan_y            = -280
+  zoom                 = 0.65
+  vehicles_shape_scale = 1.5
+  vehicles_name_viewable = names
+
+  stale_vehicles_viewable = true
+  
+  appcast_viewable = true
+  appcast_color_scheme = indigo
+
+  SCOPE = DEPLOY
+
+  BUTTON_ONE   = DEPLOY  # DEPLOY_ALL=true 
+  BUTTON_ONE   = MOOS_MANUAL_OVERIDE_ALL=false 
+  BUTTON_ONE   = RETURN_ALL=false
+  BUTTON_TWO   = RETURN  # RETURN_ALL=true
+}
+
+//--------------------------------------------------------
+// uProcessWatch Configuration Block
+
+ProcessConfig = uProcessWatch
+{
+  AppTick   = 1
+  CommsTick = 1
+
+  ALLOW_RETRACTIONS = true
+  
+  WATCH_ALL = true      // default is true
+
+  NOWATCH = uXMS*
+  NOWATCH = uPokeDB*
+
+  SUMMARY_WAIT = 12
+}
+
+
+//--------------------------------------------------------
+// uTimerScript Configuration Block
+
+ProcessConfig = uTimerScript
+{
+  AppTick   = 4
+  CommsTick = 4
+
+//  delay_start = 360
+
+  rand_var = varname=RAND_X, min=-25, max=200, key=at_post
+  rand_var = varname=RAND_Y, min=-175, max=-25, key=at_post
+
+  event = var=VISIT_POINT, val= "x=$[RAND_X], y=$[RAND_Y], id={{$[TCOUNT]+2}/2}", time=0.1
+  event = var=POST_COUNT, val= {{$[TCOUNT]+1}/2}, time=0.11
+ 
+//  reset_max  = 99
+  reset_max  = 119
+  reset_time = all-posted
+}
+
+
+//--------------------------------------------------------
+// uTimerScript Configuration Block
+
+ProcessConfig = uTimerScriptLast
+{
+  AppTick   = 4
+  CommsTick = 4
+
+//  condition = (POST_COUNT >= 100)
+  condition = (POST_COUNT >= 120)
+
+  event = var=VISIT_POINT,     val= "last", time=0.1
+  event = var=VISIT_POINT,     val= "last", time=0.2
+  event = var=LOITER_ALL,      val=false, time=0.3
+  event = var=FOLLOW_PATH_ALL, val=true, time=0.4
+ 
+  reset_max  = 0
+  reset_time = all-posted
+}
+

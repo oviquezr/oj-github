@@ -1,0 +1,33 @@
+/*****************************************************************/
+/*    NAME: Michael Benjamin, Henrik Schmidt, and John Leonard   */
+/*    MODIFIED BY: Oscar Viquez                                  */
+/*    ORGN: Dept of Mechanical Eng / CSAIL, MIT Cambridge MA     */
+/*    FILE: CommunicationAngle_Info.h                            */
+/*    DATE: Jan 12th 2012                                        */
+/*    MODIFIED: Feb 14th 2013                                    */
+/*                                                               */
+/* This program is free software; you can redistribute it and/or */
+/* modify it under the terms of the GNU General Public License   */
+/* as published by the Free Software Foundation; either version  */
+/* 2 of the License, or (at your option) any later version.      */
+/*                                                               */
+/* This program is distributed in the hope that it will be       */
+/* useful, but WITHOUT ANY WARRANTY; without even the implied    */
+/* warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR       */
+/* PURPOSE. See the GNU General Public License for more details. */
+/*                                                               */
+/* You should have received a copy of the GNU General Public     */
+/* License along with this program; if not, write to the Free    */
+/* Software Foundation, Inc., 59 Temple Place - Suite 330,       */
+/* Boston, MA 02111-1307, USA.                                   */
+/*****************************************************************/
+ 
+#ifndef P_COMMUNICATIONANGLE_TEST_INFO_HEADER
+#define P_COMMUNICATIONANGLE_TEST_INFO_HEADER
+
+void showSynopsis();
+void showHelpAndExit();
+void showExampleConfigAndExit();
+void showInterfaceAndExit();
+
+#endif

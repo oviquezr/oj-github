@@ -1,0 +1,25 @@
+//---------------------------------------------------------
+// pEchoVar Config Block  (Created from Plugin)
+
+ProcessConfig = pEchoVar
+{
+  AppTick = 1
+  CommsTick = 1
+
+  echo = NAV_X     -> NAV_XX
+  echo = NAV_X     -> NAV_XPOS
+  echo = NAV_Y     -> NAV_YY
+  echo = NAV_Y     -> NAV_YPOS
+  //echo = NAV_YY    -> FOOBAR
+  //echo = FOOBAR    -> NAV_Y
+  echo = NAV_SPEED -> NAV_SPEED_ALT
+
+  FLIP:1    = source_variable  = NODE_REPORT_LOCAL
+  FLIP:1    = dest_variable    = FOOBAR
+  FLIP:1    = source_separator = ,                              
+  FLIP:1    = dest_separator   = #                              
+  FLIP:1    = filter = type == kayak                       
+  FLIP:1    = component = X -> xpos
+  FLIP:1    = component = Y -> ypos
+}
+

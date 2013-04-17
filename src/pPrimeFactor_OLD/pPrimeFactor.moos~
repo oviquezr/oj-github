@@ -1,0 +1,33 @@
+// MOOS file
+
+ServerHost = localhost
+ServerPort = 9000
+
+Community = pPrime
+
+//------------------------------------------
+// Antler configuration  block
+ProcessConfig = ANTLER
+{
+  MSBetweenLaunches = 200
+
+  Run = MOOSDB		@ NewConsole = false
+  //Run = uSimMarine	@ NewConsole = false
+  //Run = pNodeReporter	@ NewConsole = false
+  //Run = pMarinePID	@ NewConsole = false
+  //Run = pMarineViewer	@ NewConsole = false
+  //Run = uProcessWatch   @ NewConsole = false
+  //Run = pHelmIvP	@ NewConsole = false
+
+  Run = uXMS 		@ NewConsole = true
+  Run = pPrimeFactor 	@ NewConsole = false
+}
+
+
+
+ProcessConfig = pPrimeFactor
+{
+   AppTick   = 10
+   CommsTick = 10
+}
+

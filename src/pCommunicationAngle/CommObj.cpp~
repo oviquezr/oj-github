@@ -1,0 +1,170 @@
+/*****************************************************************/
+/*    NAME: Oscar Viquez					 */
+/*    ORGN: Dept of Mechanical Eng / CSAIL, MIT Cambridge MA     */
+/*    FILE: CommObj.cpp                                          */
+/*    DATE: Feb 25th, 2013					 */
+/*****************************************************************/
+
+#include "CommObj.h"
+#include <sstream>
+#include <cmath>
+
+#define PI 3.14159265
+
+using namespace std;
+
+//---------------------------------------------------------
+// Constructor
+
+CommObj::CommObj()
+{ 
+  direct_line = true;
+}
+
+
+//---------------------------------------------------------
+// Procedure: find_path
+
+void CommObj::find_path()
+{   
+  // Find coordinate difference
+  dx     = collab_x - self_x;
+  dy     = collab_y - self_y;
+  dDepth = collab_depth - self_depth;
+  
+  // Find distance between vehicles (AB)
+  dist   = sqrt( dx*dx + dy*dy + pow(dDepth,2) ); 
+
+  double hasl = c0/g; // height above sea level
+  cout << "Distance: " << dist << " c0/g: " << hasl << endl;
+  
+  // Find angle from horizontal to line between vehicles ( <rAB, from positive r axis)
+  theta1 = atan2( -dDepth , sqrt( dx*dx + dy*dy ) );
+
+  cout << "theta1 = " << theta1*180/PI << endl;
+  
+  
+  // Find distance from (AB) to arc center
+  h      = ( (collab_depth+self_depth)/2 + c0/g ) / (sin(PI/2 + theta1));
+  
+  // Find arc radius R, angle theta0 (transmission angle)
+  R      = sqrt( h*h + dist*dist/4);
+  theta0 = asin( (self_depth + c0/g) / R) - PI/2;
+
+  if (theta1+asin(h/R) > PI/2){
+    theta0 = -theta0;
+  }
+
+  double z_max = c_z(self_depth)/(g*cos(theta0)) - c0/g;
+  
+  cout << "Radius: " << R << " Theta0: " << theta0*180/PI << endl;
+  cout << "z_max = " << z_max << " radius = " << R << endl;
+  
+  
+  // Verify zmax < water_depth 
+  //double z_max = c_z(self_depth)/(g*cos(theta0)) - c0/g;
+  //double z_max = R - c0/g;
+
+  if (z_max < water_depth) {  // There is a direct line - add to result
+    cout << "There is a direct line!" << endl;
+
+    direct_line = true;
+    connect_x     = self_x;
+    connect_y     = self_y;
+    connect_depth = self_depth;
+        
+    // Calculate transmission loss
+    transmission_loss = find_TL();
+
+  }
+  else {
+    cout << "There is NOT a direct line.";
+
+    // There is no direct line - find connectivity location
+    direct_line = false;
+
+    // Set to the largest arc radius possible
+    R = water_depth + c0/g - 1;
+    
+    // Distance to center of arc
+    double r_collab = sqrt(R*R-pow(collab_depth+c0/g,2));
+    double r_self   = sqrt(dx*dx + dy*dy) - r_collab;
+    
+    double Dtravel = sqrt(r_self*r_self + pow(self_depth+c0/g,2))-R;
+    double thetatravelRZ = atan((self_depth+c0/g)/r_self);
+    
+    connect_depth = self_depth - (Dtravel*sin(thetatravelRZ));
+
+    double thetatravelXY = atan2(dy,dx);
+    double xtravel = Dtravel*cos(thetatravelRZ) * cos(thetatravelXY);
+    double ytravel = Dtravel*cos(thetatravelRZ) * sin(thetatravelXY);
+
+    connect_x = self_x + (xtravel);//*dx/abs(dx));
+    connect_y = self_y + (ytravel);//*dy/abs(dy));
+      
+  }
+  
+  cout << endl << endl;
+
+}
+
+
+double CommObj::find_TL()
+{
+
+  theta_rec = PI/2 - asin(h/R) + theta1;
+
+  double dtheta0 = 0.0001;
+  
+  // Get for s = 1m, then for s = collab
+
+  double r1top    = R*(sin(theta0)+sin(1/R-theta0));
+  double r1bottom = R*(sin(theta0+dtheta0)+sin(1/R-theta0-dtheta0));
+
+  //double J1 = r1 * sqrt(pow(R*sin(1/R-theta0),2)+pow(-R*cos(1/R-theta0),2))/sin(theta0-1/R);
+  //double J1 = r1 * sqrt(pow(R*sin(1/R-theta0),2)+pow(-R*cos(1/R-theta0),2))/sin(theta0-1/R);
+  double J1 = r1top / sin(theta0-1/R) * (r1top-r1bottom)/dtheta0;//R*cos(1/R-theta0);
+  double z1 = R*cos(1/R-theta0)-c0/g;
+ 
+  double p1 = 1/(4*PI)*sqrt(abs(c_z(z1)*cos(theta0)/(c_z(self_depth)*J1)));
+  
+
+  double rtop    = R*(sin(theta0)+sin(-theta_rec));
+  double rbottom = R*(sin(theta0+dtheta0)+sin(-theta_rec));
+
+  //double J = r * sqrt(pow(R*sin(-theta_rec),2)+pow(-R*cos(-theta_rec),2));///sin(theta_rec);
+  double J = rtop / sin(theta_rec) * (rtop-rbottom)/dtheta0;//R*cos(-theta_rec);///sin(theta_rec);
+  
+
+  double p = 1/(4*PI)*sqrt(abs(c_z(collab_depth)*cos(theta0)/(c_z(self_depth)*J)));
+  
+  //transmission_loss = 20*log10(p/p1);
+
+  cout << "P at 1m: " << p1 << endl << "P at collab: " << p << endl;
+
+  return(-20*log10(p/p1));
+}
+
+
+std::string CommObj::get_path_str()
+{
+  std::ostringstream strs;
+  find_path();
+
+  if (direct_line){
+    strs << "elev_angle=" << theta0*180/PI << ",transmission_loss=" << transmission_loss << ",id=oviquezr";
+  }
+  else {
+    strs << "elev_angle=NaN,transmission_loss=NaN,id=oviquezr";
+  }
+  return(strs.str());
+}
+
+
+std::string CommObj::get_location_str()
+{
+  std::ostringstream strs;
+  strs << "x=" << connect_x << ",y=" << connect_y << ",depth=" << connect_depth << ",id=oviquezr";
+  return(strs.str());
+}
+

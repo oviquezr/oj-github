@@ -1,0 +1,4 @@
+username=oviquezr
+email=oviquezr@mit.edu
+fname=Oscar
+lname=Viquez
